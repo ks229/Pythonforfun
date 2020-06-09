@@ -7,6 +7,8 @@ pg.init()
 red = pg.Color(255,0,0)
 white = pg.Color(255,255,255)
 black = pg.Color(0,0,0)
+blue = pg.Color(0,0,225)
+
 screen_width = 400
 screen_height = 400
 
@@ -42,6 +44,7 @@ def score(score):
     value = score_font.render("Your Score :" + str(score),True,white)
     window.blit(value,[10, 10])
 
+
 game = True
 while game:
     score(counter)
@@ -72,6 +75,7 @@ while game:
         food_x = round(random.randrange(0,screen_width - snake_h)/10)*10
         food_y = round(random.randrange(0,screen_height - snake_w)/10)*10
         counter += 1
+        snake_speed += 1
     window.fill(black)
     score(counter)
     pg.draw.rect(window,red,[snake_x,snake_y,snake_h,snake_w])
